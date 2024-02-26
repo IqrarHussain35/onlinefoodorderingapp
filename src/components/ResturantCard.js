@@ -5,17 +5,17 @@ const ResturantCard = () => {
     <div className="containerbg-white rounded-lg shadow-lg">
       <div className="container  relative ">
         <img
-          className="shadow-lg rounded-t-lg hover:scale-95 transition duration-500 cursor-pointer object-contain"
+          className="cursor-pointer rounded-t-lg object-contain shadow-lg transition duration-500 hover:scale-95"
           src="https://www.deputy.com/uploads/2018/10/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image3-min-1024x569.png"
           alt="Popular menu items at a restaurant"
         />
-        <div className="absolute top-2 left-2">
-          <h4 className="flex flex-row  bg-pink rounded-lg text-white font-normal p-0.5 m-1 w-20">
+        <div className="absolute left-2 top-2">
+          <h4 className="m-1 flex  w-20 flex-row rounded-lg bg-pink p-0.5 font-normal text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-4 h-4 my-auto"
+              className="my-auto h-4 w-4"
             >
               <path
                 fillRule="evenodd"
@@ -25,12 +25,12 @@ const ResturantCard = () => {
             </svg>
             10% off
           </h4>
-          <h4 className="flex flex-row bg-pink rounded-lg text-white font-normal p-0.5 m-1 w-44">
+          <h4 className="m-1 flex w-44 flex-row rounded-lg bg-pink p-0.5 font-normal text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-4 h-4 my-auto"
+              className="my-auto h-4 w-4"
             >
               <path
                 fillRule="evenodd"
@@ -45,7 +45,7 @@ const ResturantCard = () => {
 
       <div className="justify-center p-3">
         <div className="flex justify-between">
-          <h1 className="text-black font-bold">Spice Lab</h1>
+          <h1 className="font-bold text-black">Spice Lab</h1>
           <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ const ResturantCard = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-6 h-6 fill-yellow-500 mr-1 stroke-orange-600"
+              className="mr-1 h-6 w-6 fill-yellow-500 stroke-orange-600"
             >
               <path
                 stroke-linecap="round"
@@ -64,10 +64,10 @@ const ResturantCard = () => {
             <p>(4.6)</p>
           </div>
         </div>
-        <h4 className="text-black font-normal ring-offset-1">
+        <h4 className="font-normal text-black ring-offset-1">
           30 min delivery time
         </h4>
-        <h1 className="text-black font-normal">Pizza,Burger,Fries</h1>
+        <h1 className="font-normal text-black">Pizza,Burger,Fries</h1>
       </div>
     </div>
   );

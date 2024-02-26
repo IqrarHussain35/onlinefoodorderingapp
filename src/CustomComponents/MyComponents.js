@@ -1,7 +1,7 @@
 export const MyInput = ({ id, type, value, onChange, placeholder }) => {
   return (
     <input
-      className=" w-96 bg-white appearance-none border-2 border-gray-200 rounded py-2 px-4 text-black leading-tight focus:outline-none focus:bg-white focus:border-pink"
+      className=" h-9 w-96 appearance-none rounded border-2 border-gray-200 bg-white px-4 py-2 leading-tight text-black focus:border-pink focus:bg-white focus:outline-none"
       placeholder={placeholder}
       id={id}
       type={type}
@@ -16,11 +16,31 @@ export const MyButton = ({ children, onClick, fullWidth }) => {
     <button
       className={`
       ${fullWidth ? "w-full" : " w - auto"}
+      ${fullWidth ? "text-lg" : " text-base"}
       flex-shrink-0 
-       bg-pink hover:bg-dullPink
-       border-pink 
-       hover:border-dullPink text-sm border-4
-      text-center text-white font-medium py-1 px-2 rounded`}
+        rounded
+       border-4 
+       border-pink
+       bg-pink px-2 py-1
+      text-center text-sm font-medium text-white 
+        hover:border-dullPink hover:bg-dullPink`}
+      type="button"
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+export const OutlinedButton = ({ children, onClick, fullWidth }) => {
+  return (
+    <button
+      className={`
+      ${fullWidth ? "w-full" : " w - auto"}
+      ${fullWidth ? "text-lg" : " text-base"}
+      flex-shrink-0 
+       rounded border-2
+       border-pink  bg-white px-2
+       py-1 text-center text-sm font-medium text-pink hover:bg-lightPink`}
       type="button"
       onClick={onClick}
     >
@@ -34,7 +54,7 @@ export const MyIconButton = ({ children, onClick }) => {
     <button
       type="button"
       onClick={onClick}
-      className="text-pink border border-pink hover:bg-pink hover:text-white focus:ring-1 focus:outline-none focus:ring-pink font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-pink dark:text-pink dark:hover:text-white dark:focus:ring-dullPink dark:hover:bg-pink"
+      className="me-2 inline-flex items-center rounded-lg border border-pink p-2.5 text-center text-sm font-medium text-pink hover:bg-pink hover:text-white focus:outline-none focus:ring-1 focus:ring-pink dark:border-pink dark:text-pink dark:hover:bg-pink dark:hover:text-white dark:focus:ring-dullPink"
     >
       {children}
     </button>

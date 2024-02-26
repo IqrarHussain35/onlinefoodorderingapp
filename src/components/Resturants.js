@@ -1,7 +1,22 @@
 import React from "react";
 import { MyButton, MyInput } from "../CustomComponents/MyComponents";
 import ResturantCard from "./ResturantCard";
-
+import { Link } from "react-router-dom";
+import BreadCrumb from "./BreadCrumb";
+const data = [
+  {
+    name: "Lahore",
+    url: "/",
+  },
+  {
+    name: "Resturants List",
+    url: "/",
+  },
+  {
+    name: "Food Court By Hinfy Dinfy",
+    url: "/ResturantProfile",
+  },
+];
 const Resturants = () => {
   return (
     <div classclassName="md:container md:mx-auto">
@@ -30,15 +45,30 @@ const Resturants = () => {
       </div>
 
       <div className="container m-auto">
+        <div className="mx-5">
+          {" "}
+          <BreadCrumb data={data} />
+        </div>
+
         <h1 className="text-black text-xl font-bold mx-5 my-2">
           All Resturants
         </h1>
         <div className=" bg-white p-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
-          <ResturantCard />
-          <ResturantCard />
-          <ResturantCard />
-          <ResturantCard />
-          <ResturantCard />
+          <Link to="/ResturantProfile">
+            <ResturantCard />
+          </Link>
+          <Link to="/ResturantProfile">
+            <ResturantCard />
+          </Link>
+          <Link to="/ResturantProfile">
+            <ResturantCard />
+          </Link>
+          <Link to="/ResturantProfile">
+            <ResturantCard />
+          </Link>
+          <Link to="/ResturantProfile">
+            <ResturantCard />
+          </Link>
         </div>
       </div>
     </div>
