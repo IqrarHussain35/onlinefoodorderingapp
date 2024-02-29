@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
-  darkMode: false, // or 'media' or 'class'
+  // darkMode: false, // or 'media' or 'class'
   variants: {
     extend: {},
   },

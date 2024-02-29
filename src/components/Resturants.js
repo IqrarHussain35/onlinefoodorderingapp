@@ -20,8 +20,8 @@ const data = [
 const Resturants = () => {
   return (
     <div classclassName="md:container md:mx-auto">
-      <div className="sticky top-20 z-10 flex justify-center  bg-white">
-        <div className="flex flex-row space-x-2 m-5">
+      <div className="sticky top-16 z-10 flex justify-center  bg-white">
+        <div className="m-5 flex flex-row space-x-2">
           <MyInput
             id="search"
             type={"text"}
@@ -32,7 +32,7 @@ const Resturants = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 fillRule="evenodd"
@@ -45,15 +45,13 @@ const Resturants = () => {
       </div>
 
       <div className="container m-auto">
-        <div className="mx-5">
-          {" "}
-          <BreadCrumb data={data} />
-        </div>
+        <div className="mx-5"> {/* <BreadCrumb data={data} /> */}</div>
 
-        <h1 className="text-black text-xl font-bold mx-5 my-2">
+        <h1 className="mx-5 my-2 text-xl font-bold text-black">
           All Resturants
         </h1>
-        <div className=" bg-white p-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
+        {/* className=" grid gap-5 bg-white p-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <Link to="/ResturantProfile">
             <ResturantCard />
           </Link>

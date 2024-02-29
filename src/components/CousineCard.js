@@ -19,7 +19,7 @@ const CousineCard = () => {
         <img
           src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSAoQhMJX_3TBCaeA2sgnatJfnTsHFX1j-keZ_KNKoEi2pAC56W"
           alt="cuisine"
-          className="h-full w-full rounded-lg object-cover"
+          className="h-full w-full rounded-lg object-cover object-center"
         />
         <button className="absolute bottom-2 right-2  flex h-8 w-8 items-center justify-center rounded-full border-[1px] border-grey bg-white hover:scale-110">
           <svg
