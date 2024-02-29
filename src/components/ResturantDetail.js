@@ -6,17 +6,17 @@ const data = [
     url: "/",
   },
   {
-    name: "Resturants List",
+    name: "Dashboard",
     url: "/",
   },
   {
-    name: "Food Court By Hinfy Dinfy",
+    name: "Spice Lab",
     url: "/ResturantProfile",
   },
 ];
 const ResturantDetail = () => {
   return (
-    <div className=" my-2 flex flex-col space-y-2 border-b border-b-gray-300 pb-6">
+    <div className=" my-2 flex flex-col space-y-2 border-b border-b-gray-300  pb-6">
       {" "}
       <div className="my-1">
         {" "}

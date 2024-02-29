@@ -1,7 +1,14 @@
-export const MyInput = ({ id, type, value, onChange, placeholder }) => {
+export const MyInput = ({
+  id,
+  type,
+  value,
+  onChange,
+  placeholder,
+  fullWidth,
+}) => {
   return (
     <input
-      className=" h-9 w-96 appearance-none rounded border-2 border-gray-200 bg-white px-4 py-2 leading-tight text-black focus:border-pink focus:bg-white focus:outline-none"
+      className={`${fullWidth ? "w-full" : "w-96 "} h-9 appearance-none rounded border-2 border-gray-200 bg-white px-4 py-2 leading-tight text-black focus:border-pink focus:bg-white focus:outline-none`}
       placeholder={placeholder}
       id={id}
       type={type}

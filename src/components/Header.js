@@ -15,11 +15,11 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between py-2 px-6 bg-white shadow-lg sticky top-0 z-50">
-        <div className="w-30 h-16 my-auto">
+      <div className="sticky top-0 z-50 flex items-center justify-between bg-white px-6 py-2 shadow-lg">
+        <div className="w-30 my-auto h-16">
           <img src="/foodcourt1.png" alt="logo" />
         </div>
-        <ul className="hidden md:flex gap-7 mx-auto cursor-pointer font-medium">
+        <ul className="mx-auto hidden cursor-pointer gap-7 font-medium md:flex">
           <li className="nav-link hover:text-pink">Home</li>
           <li className="nav-link hover:text-pink">About</li>
           <li className="nav-link hover:text-pink">Contact Us</li>
@@ -30,7 +30,7 @@ const Header = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 strokeLinecap="round"
@@ -44,7 +44,7 @@ const Header = () => {
           <OutlinedButton onClick={handleOpenLogin}>Login</OutlinedButton>
           <MyButton>Sign Up</MyButton>
           <img
-            className=" w-12 h-12 rounded-full object-cover"
+            className=" h-12 w-12 rounded-full object-cover"
             src="/iqrar.png"
             alt="Profile"
           />

@@ -41,9 +41,10 @@ const ResturantProfile = () => {
       target.scrollIntoView({ behavior: "smooth" });
     }
   }
+
   useEffect(() => {}, [scrollX, path]);
   return (
-    <div className=" md:container md:mx-auto">
+    <div className=" mt-10 p-10">
       <ResturantDetail />
       <div className="my-6 flex flex-col space-y-4 border-b border-b-gray-300 pb-6">
         <h1 className="text-3xl font-light">Avialable Deals</h1>
@@ -67,7 +68,7 @@ const ResturantProfile = () => {
         </div>
       </div>
 
-      <div className="sticky top-[80px] z-10 flex h-16 place-items-center items-center justify-center space-x-2 bg-white px-14 ">
+      <div className="sticky top-[70px] z-10 flex h-16 place-items-center items-center justify-center space-x-2 bg-white px-14 ">
         <MyInput placeholder={"Search here"} />
         {scroll > 0 && (
           <button
@@ -157,7 +158,6 @@ const ResturantProfile = () => {
               <CousineCard />
             </div>
           </section>
-
           <section id="cake">
             <h1 className="text-xl font-bold text-black">Cake</h1>
             <span className="mb-3 block font-light text-grey">
