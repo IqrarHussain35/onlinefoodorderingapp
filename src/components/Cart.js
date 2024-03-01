@@ -227,7 +227,7 @@ const Cart = () => {
           {/* Cart Item */}
         </div>
       </div>
-      <div className="mx-3 flex  flex-col space-y-2 shadow-lg">
+      <div className="mx-3 flex  flex-col space-y-2 ">
         <div className="my-3 flex justify-between">
           <h className="text-lg font-bold text-black">Total</h>
           <h className="text-lg font-bold text-black">Rs .450</h>

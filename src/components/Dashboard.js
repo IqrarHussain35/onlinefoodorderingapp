@@ -7,11 +7,11 @@ import { MyButton, MyInput } from "../CustomComponents/MyComponents";
 const Dashboard = () => {
   return (
     <>
-      <div className="p-4 sm:ml-64">
-        <div className="sticky top-16 z-10 mx-auto flex  justify-center bg-white">
+      <div className="items-center justify-center p-4 sm:ml-52">
+        <div className="sticky top-16 z-10 mx-auto flex flex-col  items-center justify-center bg-white">
           <div className="m-5 flex flex-row space-x-2">
             <MyInput
-              //   fullWidth={true}
+              // fullWidth={true}
               id="search"
               type={"text"}
               placeholder={"search resturants"}
@@ -31,15 +31,15 @@ const Dashboard = () => {
               </svg>
             </MyButton>
           </div>
+          <h1 className="mx-5 my-2 self-start text-xl font-bold text-black">
+            All Resturants
+          </h1>
         </div>
         <div className="mt-14 rounded-lg p-4 ">
           <div className="md:container md:mx-auto">
             {/* <div className="container m-auto"> */}
             {/* <div className="mx-5"> <BreadCrumb data={data} /></div> */}
 
-            <h1 className="mx-5 my-2 text-xl font-bold text-black">
-              All Resturants
-            </h1>
             {/* className=" grid gap-5 bg-white p-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               <Link to="/ResturantProfile">

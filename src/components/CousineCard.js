@@ -3,8 +3,11 @@ import React from "react";
 const CousineCard = () => {
   return (
     <div
+      // className="m-1 flex flex-1 transform cursor-pointer flex-row items-center
+      // rounded-lg border-[1px] bg-white p-2 transition-transform hover:scale-105
+      // hover:bg-lightPink"
       className="m-1 flex flex-1 transform cursor-pointer flex-row items-center
-      rounded-lg border-[1px] bg-white p-2 transition-transform hover:scale-105
+      rounded-lg border-[1px] bg-white p-2 transition-transform duration-300 ease-out hover:scale-105
       hover:bg-lightPink"
     >
       <div className=" flex flex-grow flex-col space-y-2">

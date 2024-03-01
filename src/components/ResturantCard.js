@@ -2,13 +2,15 @@ import React from "react";
 
 const ResturantCard = () => {
   return (
-    <div className="containerbg-white rounded-lg shadow-lg">
+    <div className="container rounded-lg  bg-white shadow-lg">
       <div className="container  relative ">
-        <img
-          className="cursor-pointer rounded-t-lg object-contain shadow-lg transition duration-500 hover:scale-95"
-          src="https://www.deputy.com/uploads/2018/10/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image3-min-1024x569.png"
-          alt="Popular menu items at a restaurant"
-        />
+        <div className=" overflow-hidden rounded-t-lg bg-cover bg-no-repeat">
+          <img
+            className="cursor-pointer  object-contain shadow-lg transition duration-300 ease-in-out hover:scale-105"
+            src="https://www.deputy.com/uploads/2018/10/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image3-min-1024x569.png"
+            alt="Popular menu items at a restaurant"
+          />
+        </div>
         <div className="absolute left-2 top-2">
           <h4 className="m-1 flex  w-20 flex-row rounded-lg bg-pink p-0.5 font-normal text-white">
             <svg
