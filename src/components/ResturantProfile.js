@@ -19,7 +19,28 @@ const ResturantProfile = () => {
   const [path, setpath] = useState(url.split("#")[1]);
   const scrollX = useRef(null);
   const [scroll, setScroll] = useState(0);
+  const sectionRefs = useRef([]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setpath(entry.target.id);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.5 },
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   const onScrollRight = () => {
     if (scrollX.current) {
       scrollX.current.scrollLeft += 100;
@@ -68,7 +89,7 @@ const ResturantProfile = () => {
         </div>
       </div>
 
-      <div className="sticky top-[70px] z-10 flex h-16 place-items-center items-center justify-center space-x-2 bg-white px-14 ">
+      <div className="sticky top-[70px] z-10 flex  h-16 place-items-center items-center justify-center space-x-2 bg-white px-14 ">
         <MyInput placeholder={"Search here"} />
         {scroll > 0 && (
           <button
@@ -99,7 +120,7 @@ const ResturantProfile = () => {
             <li
               onClick={(e) => scrollToTarget(e, item.name.toLowerCase())}
               key={item.id}
-              className={`${path === item.name.toLowerCase() ? "border-b-2 border-b-pink bg-lightPink" : null} mx-2 block h-10 w-full cursor-pointer border-2 border-b border-transparent px-4 py-3  text-center text-[15px] font-medium text-black transition-all hover:border-2 hover:border-b-pink hover:bg-lightPink `}
+              className={`${path === item.name.toLowerCase() ? " border-b-2 border-b-pink bg-lightPink" : null} mx-2 block h-10 w-full cursor-pointer border-2 border-b border-transparent px-4 py-3  text-center text-[15px] font-medium text-black transition-all hover:border-2 hover:border-b-pink hover:bg-lightPink `}
             >
               <a href={`#${item.name.toLowerCase()}`}>{item.name}</a>
             </li>
@@ -130,7 +151,7 @@ const ResturantProfile = () => {
       </div>
       <div className="grid grid-cols-6 gap-3">
         <div className="col-span-6 overflow-y-auto bg-white p-4 lg:col-span-4">
-          <section id="papular">
+          <section ref={(ref) => (sectionRefs.current[0] = ref)} id="papular">
             <h1 className={`text-xl font-bold text-black`}>Popular</h1>
             <span className="mb-3 block font-light text-grey">
               Most Orderd Right Now
@@ -144,7 +165,7 @@ const ResturantProfile = () => {
               <CousineCard />
             </div>
           </section>
-          <section id="pastery">
+          <section ref={(ref) => (sectionRefs.current[1] = ref)} id="pastery">
             <h1 className={`text-xl font-bold text-black`}>Pastery</h1>
             <span className="mb-3 block font-light text-grey">
               Most Orderd Right Now
@@ -158,7 +179,7 @@ const ResturantProfile = () => {
               <CousineCard />
             </div>
           </section>
-          <section id="cake">
+          <section ref={(ref) => (sectionRefs.current[2] = ref)} id="cake">
             <h1 className="text-xl font-bold text-black">Cake</h1>
             <span className="mb-3 block font-light text-grey">
               Most Orderd Right Now
@@ -171,7 +192,7 @@ const ResturantProfile = () => {
               <CousineCard />
             </div>
           </section>
-          <section id="pizza">
+          <section ref={(ref) => (sectionRefs.current[3] = ref)} id="pizza">
             <h1 className="text-xl font-bold text-black">Pizza</h1>
             <span className="mb-3 block font-light text-grey">
               Most Orderd Right Now
@@ -184,7 +205,10 @@ const ResturantProfile = () => {
               <CousineCard />
             </div>
           </section>
-          <section id="sandwitches">
+          <section
+            ref={(ref) => (sectionRefs.current[4] = ref)}
+            id="sandwitches"
+          >
             <h1 className="text-xl font-bold text-black">Sandwitches</h1>
             <span className="mb-3 block font-light text-grey">
               Most Orderd Right Now
@@ -198,7 +222,8 @@ const ResturantProfile = () => {
             </div>
           </section>
         </div>
-        <div className=" sticky right-0 top-40 z-[11] hidden h-[460px] bg-white  lg:col-span-2 lg:block">
+
+        <div className="sticky right-0 top-40 z-[11]  hidden h-[460px] bg-white  lg:col-span-2 lg:mt-5 lg:block">
           <Cart />
         </div>
       </div>

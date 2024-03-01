@@ -1,17 +1,104 @@
 import React, { useEffect, useState } from "react";
+const ratings = [
+  { Rating: "1" },
+  { Rating: "2" },
+  { Rating: "3+" },
+  { Rating: "Top" },
+];
+const offers = [
+  { Offer: "Free Delivery" },
+  { Offer: "Accepts vouchers" },
+  { Offer: "Deals" },
+];
+const cousines = [
+  { Cousine: "BBQ" },
+  { Cousine: "Biryani" },
+  { Cousine: "Roast" },
+  { Cousine: "Burger" },
+  { Cousine: "Pizza" },
+  { Cousine: "Cakes" },
+];
 
 const Sidebar = ({ isDrawerOpen }) => {
   return (
     <>
       <aside
         id="logo-sidebar"
-        className={`fixed left-0 top-0 z-40 h-screen w-64 border-r border-gray-200 bg-white pt-20 transition-transform ${
+        className={`fixed left-0 top-0 z-40 h-screen w-56  border-gray-200 bg-white pt-20 transition-transform ${
           isDrawerOpen ? "" : "-translate-x-full"
-        } sm:translate-x-0 dark:border-gray-700 dark:bg-gray-800`}
+        } sm:translate-x-0`}
         aria-label="Sidebar"
       >
-        <div className="h-full overflow-y-auto bg-white px-3 pb-4 dark:bg-gray-800">
-          <ul className="space-y-2 font-medium">
+        <div className="h-full overflow-hidden overflow-y-auto rounded-lg border-r border-t bg-white px-5 pb-4 ">
+          <div className="my-5 flex items-center justify-between">
+            <h1 className="text-back block text-lg font-semibold">Filters</h1>
+            <h1 className="cursor-pointer p-1 font-medium text-pink transition-all duration-300 hover:rounded-lg hover:bg-lightPink hover:text-dullPink">
+              Clear All
+            </h1>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="my-2 font-semibold text-pink">Ratings</h1>
+            {ratings.map((item) => (
+              <div key={item.Rating} className="mb-4 flex items-center">
+                <input
+                  id="red-checkbox"
+                  type="checkbox"
+                  defaultValue
+                  className="h-4 w-4 rounded  border-pink bg-white text-pink accent-pink "
+                />
+
+                <label
+                  htmlFor="default-checkbox"
+                  className="ms-2 text-sm font-medium text-black "
+                >
+                  {item.Rating}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col">
+            <h1 className="my-2 font-semibold text-pink">Offers</h1>
+            {offers.map((item) => (
+              <div key={item.Offer} className="mb-4 flex items-center">
+                <input
+                  defaultChecked
+                  id="red-checkbox"
+                  type="checkbox"
+                  defaultValue
+                  className="h-4 w-4 rounded  border-pink bg-white text-pink accent-pink "
+                />
+
+                <label
+                  htmlFor="default-checkbox"
+                  className="ms-2 text-sm font-medium text-black "
+                >
+                  {item.Offer}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col">
+            <h1 className="my-2 font-semibold text-pink">Cousines</h1>
+            {cousines.map((item) => (
+              <div key={item.Cousine} className="mb-4 flex items-center">
+                <input
+                  id="red-checkbox"
+                  type="checkbox"
+                  defaultValue
+                  className="h-4 w-4 rounded  border-pink bg-white text-pink accent-pink "
+                />
+
+                <label
+                  htmlFor="default-checkbox"
+                  className="ms-2 text-sm font-medium text-black "
+                >
+                  {item.Cousine}
+                </label>
+              </div>
+            ))}
+          </div>
+
+          {/* <ul className="space-y-2 font-medium">
             <li>
               <a
                 href="#"
@@ -146,7 +233,7 @@ const Sidebar = ({ isDrawerOpen }) => {
                 <span className="ms-3 flex-1 whitespace-nowrap">Sign Up</span>
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </aside>
     </>

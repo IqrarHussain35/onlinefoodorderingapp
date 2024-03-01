@@ -45,7 +45,7 @@ export const OutlinedButton = ({ children, onClick, fullWidth }) => {
       ${fullWidth ? "w-full" : " w - auto"}
       ${fullWidth ? "text-lg" : " text-base"}
       flex-shrink-0 
-       rounded border-2
+       rounded border-[1px]
        border-pink  bg-white px-2
        py-1 text-center text-sm font-medium text-pink hover:bg-lightPink`}
       type="button"

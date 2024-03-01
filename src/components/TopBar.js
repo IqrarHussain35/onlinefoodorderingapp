@@ -1,131 +1,172 @@
-import React from "react";
-import { OutlinedButton } from "../CustomComponents/MyComponents";
+import React, { useState } from "react";
+import {
+  MyButton,
+  MyIconButton,
+  OutlinedButton,
+} from "../CustomComponents/MyComponents";
+import LoginDialog from "./LoginDialog";
 
 const TopBar = ({ toggleDrawer }) => {
+  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+
+  const handleOpenLogin = () => {
+    setOpenLoginDialog(true);
+  };
+
+  const handleCloseLogin = () => {
+    setOpenLoginDialog(false);
+  };
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-      <div className="px-3 py-3 lg:px-5 lg:pl-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center justify-start rtl:justify-end">
-            <button
-              data-drawer-toggle="logo-sidebar"
-              aria-controls="logo-sidebar"
-              type="button"
-              className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              onClick={toggleDrawer}
-            >
-              <span className="sr-only">Open sidebar</span>
-              <svg
-                className="h-6 w-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+    <>
+      <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start rtl:justify-end">
+              <button
+                data-drawer-toggle="logo-sidebar"
+                aria-controls="logo-sidebar"
+                type="button"
+                className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                onClick={toggleDrawer}
               >
-                <path
-                  clipRule="evenodd"
-                  fillRule="evenodd"
-                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                <span className="sr-only">Open sidebar</span>
+                <svg
+                  className="h-6 w-6"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    fillRule="evenodd"
+                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                  />
+                </svg>
+              </button>
+
+              <a href="/" className="ms-2 flex md:me-24">
+                <img
+                  src="/foodcourt1.png"
+                  className="me-3 h-12"
+                  alt="Foodcourt Logo"
                 />
-              </svg>
-            </button>
 
-            <a href="/" className="ms-2 flex md:me-24">
-              <img
-                src="/foodcourt1.png"
-                className="me-3 h-12"
-                alt="Foodcourt Logo"
-              />
-              {/* <div className="flex  space-x-3 ">
-                <OutlinedButton>Login</OutlinedButton>
-                <OutlinedButton>Login</OutlinedButton>
-                <OutlinedButton>Login</OutlinedButton>
-              </div> */}
-
-              {/* <span className="self-center whitespace-nowrap text-xl font-semibold sm:text-2xl dark:text-white">
+                {/* <span className="self-center whitespace-nowrap text-xl font-semibold sm:text-2xl dark:text-white">
                 Flowbite
               </span> */}
-            </a>
-          </div>
-          <div className="flex items-center">
-            <div className="ms-3 flex items-center">
-              <div>
+              </a>
+            </div>
+            <div className=" flex items-center">
+              <div className="flex w-52 flex-1 gap-2">
+                <OutlinedButton onClick={handleOpenLogin}>Login</OutlinedButton>
+                <MyButton>Sign Up</MyButton>
                 <button
                   type="button"
-                  className="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                  aria-expanded="false"
-                  data-dropdown-toggle="dropdown-user"
+                  // data-te-ripple-init
+                  // data-te-ripple-color="light"
+                  className=" inline-block rounded-full p-2 uppercase leading-normal text-pink hover:bg-lightPink "
                 >
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="/iqrar.png"
-                    alt="user photo"
-                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="h-6 w-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
                 </button>
               </div>
-              <div
-                className="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
-                id="dropdown-user"
-              >
-                <div className="px-4 py-3" role="none">
-                  <p
-                    className="text-sm text-gray-900 dark:text-white"
-                    role="none"
+
+              <div className="ms-3 flex items-center">
+                <div>
+                  <button
+                    type="button"
+                    className="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    aria-expanded="false"
+                    data-dropdown-toggle="dropdown-user"
                   >
-                    Neil Sims
-                  </p>
-                  <p
-                    className="truncate text-sm font-medium text-gray-900 dark:text-gray-300"
-                    role="none"
-                  >
-                    neil.sims@flowbite.com
-                  </p>
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src="/iqrar.png"
+                      alt="user photo"
+                    />
+                  </button>
                 </div>
-                <ul className="py-1" role="none">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
+                <div
+                  className="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
+                  id="dropdown-user"
+                >
+                  <div className="px-4 py-3" role="none">
+                    <p
+                      className="text-sm text-gray-900 dark:text-white"
+                      role="none"
                     >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
+                      Neil Sims
+                    </p>
+                    <p
+                      className="truncate text-sm font-medium text-gray-900 dark:text-gray-300"
+                      role="none"
                     >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                    >
-                      Earnings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                    >
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
+                      neil.sims@flowbite.com
+                    </p>
+                  </div>
+                  <ul className="py-1" role="none">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Sign out
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <LoginDialog
+        openLoginDialog={openLoginDialog}
+        handleCloseLogin={handleCloseLogin}
+      />
+    </>
   );
 };
 
