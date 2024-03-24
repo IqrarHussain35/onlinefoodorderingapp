@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 const BreadCrumb = ({ data }) => {
   let { pathname } = useLocation();
+  pathname = decodeURIComponent(pathname);
   return (
     <div className="flex items-center ">
       {data.map((item, index) => {
