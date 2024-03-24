@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import {
-  MyButton,
-  MyIconButton,
-  OutlinedButton,
-} from "../CustomComponents/MyComponents";
+import { MyButton, OutlinedButton } from "../CustomComponents/MyComponents";
 import LoginDialog from "./LoginDialog";
+import { Navigate, useNavigate } from "react-router";
+import { succeccsAlert } from "../common";
 
 const TopBar = ({ toggleDrawer }) => {
+  const navigate = useNavigate();
   const [openLoginDialog, setOpenLoginDialog] = useState(false);
 
   const handleOpenLogin = () => {
@@ -60,9 +59,12 @@ const TopBar = ({ toggleDrawer }) => {
             <div className=" flex items-center">
               <div className="flex w-52 flex-1 gap-2">
                 <OutlinedButton onClick={handleOpenLogin}>Login</OutlinedButton>
-                <MyButton>Sign Up</MyButton>
+                <MyButton onclick={() => succeccsAlert("called")}>
+                  Sign Up
+                </MyButton>
                 <button
                   type="button"
+                  onClick={() => navigate("/Cart")}
                   // data-te-ripple-init
                   // data-te-ripple-color="light"
                   className=" inline-block rounded-full p-2 uppercase leading-normal text-pink hover:bg-lightPink "

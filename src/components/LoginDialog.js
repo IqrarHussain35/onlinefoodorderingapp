@@ -1,11 +1,14 @@
 import * as React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
+
 import { MyButton, OutlinedButton } from "../CustomComponents/MyComponents";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 export default function LoginDialog({ openLoginDialog, handleCloseLogin }) {
+  const { user, loginWithRedirect } = useAuth0();
   return (
     <React.Fragment>
       <Dialog
@@ -65,7 +68,10 @@ export default function LoginDialog({ openLoginDialog, handleCloseLogin }) {
               </svg>
               Continue With Facebook
             </button>
-            <button className="flex w-full items-center justify-center gap-2 rounded-lg border  border-slate-200 px-4 py-2 text-slate-700 transition duration-150 hover:border-slate-400 hover:text-slate-900 hover:shadow dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:text-slate-300">
+            <button
+              // onClick={loginWithRedirect}
+              className="flex w-full items-center justify-center gap-2 rounded-lg border  border-slate-200 px-4 py-2 text-slate-700 transition duration-150 hover:border-slate-400 hover:text-slate-900 hover:shadow dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:text-slate-300"
+            >
               <img
                 className="h-6 w-6"
                 src="https://www.svgrepo.com/show/475656/google-color.svg"

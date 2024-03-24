@@ -1,20 +1,20 @@
 import React from "react";
 import BreadCrumb from "./BreadCrumb";
-const data = [
-  {
-    name: "Lahore",
-    url: "/",
-  },
-  {
-    name: "Dashboard",
-    url: "/",
-  },
-  {
-    name: "Spice Lab",
-    url: "/ResturantProfile",
-  },
-];
-const ResturantDetail = () => {
+import { useParams } from "react-router";
+
+const ResturantDetail = ({ resdata }) => {
+  const { name } = useParams();
+  const { cuisines } = resdata?.data;
+  const data = [
+    {
+      name: "Dashboard",
+      url: "/",
+    },
+    {
+      name: name,
+      url: `/ResturantProfile/${name}`,
+    },
+  ];
   return (
     <div className=" my-2 flex flex-col space-y-2 border-b border-b-gray-300  pb-6">
       {" "}
@@ -23,9 +23,11 @@ const ResturantDetail = () => {
         <BreadCrumb data={data} />
       </div>
       <div className="flex flex-row space-x-1">
-        <h2 className="font-normal text-grey">Beverages . Pasta . Burger</h2>
+        <h2 className="font-normal text-grey">
+          {cuisines.map((item) => item.name + ". ")}
+        </h2>
       </div>
-      <h1 className="text-3xl font-bold text-black">SpiceLab</h1>
+      <h1 className="text-3xl font-bold text-black">{name}</h1>
       <div className="font-medium text-grey">
         <strong className="mr-2 inline-block rounded-3xl bg-lightPink2 px-2 py-1 text-xs font-bold text-dullPink">
           45 % off
